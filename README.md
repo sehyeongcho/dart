@@ -72,7 +72,7 @@ void main() {
 }
 ```
 
-### 불리언 변수 사용용
+### 불리언 변수 사용
 ```dart
 void main() {
   // boolean
@@ -84,7 +84,7 @@ void main() {
 }
 ```
 
-### 문자열 및 타입 확인인
+### 문자열 및 타입 확인
 ```dart
 void main() {
   // String
@@ -149,7 +149,7 @@ void main() {
 }
 ```
 
-### 널 허용 및 널 불허 변수 사용용
+### 널 허용 및 널 불허 변수 사용
 ```dart
 void main() {
   // nullable, non-nullable
@@ -208,7 +208,7 @@ void main() {
 }
 ```
 
-### 산술 연산자 사용용
+### 산술 연산자 사용
 ```dart
 void main() {
   // operator
@@ -280,7 +280,7 @@ void main() {
 }
 ```
 
-### 비교 연산자 사용용
+### 비교 연산자 사용
 ```dart
 void main() {
   int number1 = 1;
@@ -334,7 +334,7 @@ void main() {
 }
 ```
 
-### 리스트 사용 및 인덱싱싱
+### 리스트 사용 및 인덱싱
 ```dart
 void main() {
   // List
@@ -373,7 +373,7 @@ void main() {
 }
 ```
 
-### 맵 사용 및 수정정
+### 맵 사용 및 수정
 ```dart
 void main() {
   // Map
@@ -419,7 +419,7 @@ void main() {
 }
 ```
 
-### 셋 사용 및 수정정
+### 셋 사용 및 수정
 ```dart
 void main() {
   // Set
@@ -443,7 +443,7 @@ void main() {
 }
 ```
 
-### if-else 조건문 사용용
+### if-else 조건문 사용
 ```dart
 void main() {
   // if
@@ -515,7 +515,7 @@ void main() {
 }
 ```
 
-### while 루프 및 do-while 루프 사용용
+### while 루프 및 do-while 루프 사용
 ```dart
 void main() {
   // while loop
@@ -567,7 +567,7 @@ void main() {
 }
 ```
 
-### enum 사용 및 비교교
+### enum 사용 및 비교
 ```dart
 enum Status {
   approved,
@@ -588,7 +588,7 @@ void main() {
 }
 ```
 
-### 순서 있는 매개변수를 사용하는 함수 정의의
+### 순서 있는 매개변수를 사용하는 함수 정의
 ```dart
 void main() {
   add(10, 20, 30);
@@ -614,7 +614,7 @@ add(int x, int y, int z) {
 }
 ```
 
-### 선택적 매개변수를 사용하는 함수 정의의
+### 선택적 매개변수를 사용하는 함수 정의
 ```dart
 void main() {
   add(10);
@@ -641,7 +641,7 @@ add(int x, [int y = 20, int z = 30]) {
 }
 ```
 
-### 이름 있는 매개변수를 사용하는 함수 정의의
+### 이름 있는 매개변수를 사용하는 함수 정의
 ```dart
 void main() {
   add(x: 10, y: 20);
