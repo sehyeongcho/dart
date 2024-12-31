@@ -1,11 +1,13 @@
 # Dart
 
+### Hello, World! 출력
 ```dart
 void main() {
   print('Hello, World!');
 }
 ```
 
+### 변수 사용 및 값 변경
 ```dart
 void main() {
   // variable
@@ -24,6 +26,7 @@ void main() {
 
 ```
 
+### 정수형 변수 사용
 ```dart
 void main() {
   // integer
@@ -41,6 +44,7 @@ void main() {
 }
 ```
 
+### 정수 연산 (덧셈, 뺄셈, 곱셈, 나눗셈)
 ```dart
 void main() {
   // integer
@@ -54,6 +58,7 @@ void main() {
 }
 ```
 
+### 실수형 변수 연산 (덧셈, 뺄셈, 곱셈, 나눗셈)
 ```dart
 void main() {
   // double
@@ -67,6 +72,7 @@ void main() {
 }
 ```
 
+### 불리언 변수 사용용
 ```dart
 void main() {
   // boolean
@@ -78,6 +84,7 @@ void main() {
 }
 ```
 
+### 문자열 및 타입 확인인
 ```dart
 void main() {
   // String
@@ -100,6 +107,7 @@ void main() {
 }
 ```
 
+### 문자열 결합 및 문자열 내 변수 삽입
 ```dart
 void main() {
   // String
@@ -117,6 +125,7 @@ void main() {
 }
 ```
 
+### 동적 타입 변수 사용 및 타입 변경
 ```dart
 void main() {
   // dynamic
@@ -140,6 +149,7 @@ void main() {
 }
 ```
 
+### 널 허용 및 널 불허 변수 사용용
 ```dart
 void main() {
   // nullable, non-nullable
@@ -162,6 +172,7 @@ void main() {
 }
 ```
 
+### final과 const를 이용한 값 할당
 ```dart
 void main() {
   // final, const
@@ -183,6 +194,7 @@ void main() {
 }
 ```
 
+### final과 const를 이용한 변수 선언
 ```dart
 void main() {
   // final, const
@@ -196,6 +208,7 @@ void main() {
 }
 ```
 
+### 산술 연산자 사용용
 ```dart
 void main() {
   // operator
@@ -213,6 +226,7 @@ void main() {
 }
 ```
 
+### 증감 연산자 및 복합 대입 연산자 사용
 ```dart
 void main() {
   // operator
@@ -244,6 +258,7 @@ void main() {
 }
 ```
 
+### 널 값을 처리하는 연산자 사용
 ```dart
 void main() {
   // null
@@ -265,6 +280,7 @@ void main() {
 }
 ```
 
+### 비교 연산자 사용용
 ```dart
 void main() {
   int number1 = 1;
@@ -279,6 +295,7 @@ void main() {
 }
 ```
 
+### 타입 검사 연산자 사용
 ```dart
 void main() {
   int number = 1;
@@ -291,6 +308,7 @@ void main() {
 }
 ```
 
+### 논리 연산자 (AND, OR 사용)
 ```dart
 void main() {
   // &&(AND), ||(OR)
@@ -316,6 +334,7 @@ void main() {
 }
 ```
 
+### 리스트 사용 및 인덱싱싱
 ```dart
 void main() {
   // List
@@ -334,6 +353,7 @@ void main() {
 }
 ```
 
+### 리스트 수정 및 메서드 사용
 ```dart
 void main() {
   // List
@@ -353,6 +373,7 @@ void main() {
 }
 ```
 
+### 맵 사용 및 수정정
 ```dart
 void main() {
   // Map
@@ -398,6 +419,7 @@ void main() {
 }
 ```
 
+### 셋 사용 및 수정정
 ```dart
 void main() {
   // Set
@@ -421,6 +443,7 @@ void main() {
 }
 ```
 
+### if-else 조건문 사용용
 ```dart
 void main() {
   // if
@@ -442,6 +465,7 @@ void main() {
 }
 ```
 
+### switch-case 조건문 사용
 ```dart
 void main() {
   // switch
@@ -463,6 +487,7 @@ void main() {
 }
 ```
 
+### for 루프 및 for-in 루프 사용
 ```dart
 void main() {
   // for loop
@@ -490,6 +515,7 @@ void main() {
 }
 ```
 
+### while 루프 및 do-while 루프 사용용
 ```dart
 void main() {
   // while loop
@@ -518,6 +544,7 @@ void main() {
 }
 ```
 
+### break 및 continue 제어문 사용
 ```dart
 void main() {
   // break
@@ -540,6 +567,7 @@ void main() {
 }
 ```
 
+### enum 사용 및 비교교
 ```dart
 enum Status {
   approved,
@@ -560,6 +588,7 @@ void main() {
 }
 ```
 
+### 순서 있는 매개변수를 사용하는 함수 정의의
 ```dart
 void main() {
   add(10, 20, 30);
@@ -585,6 +614,7 @@ add(int x, int y, int z) {
 }
 ```
 
+### 선택적 매개변수를 사용하는 함수 정의의
 ```dart
 void main() {
   add(10);
@@ -611,6 +641,7 @@ add(int x, [int y = 20, int z = 30]) {
 }
 ```
 
+### 이름 있는 매개변수를 사용하는 함수 정의의
 ```dart
 void main() {
   add(x: 10, y: 20);
@@ -642,6 +673,7 @@ add({
 }
 ```
 
+### 필수 및 선택적 이름 있는 매개변수를 사용하는 함수 정의
 ```dart
 void main() {
   add(x: 10, y: 20);
@@ -673,6 +705,7 @@ add({
 }
 ```
 
+### 매개변수를 혼합하여 사용하는 함수 정의
 ```dart
 void main() {
   int result1 = add(10, y: 20);
@@ -685,30 +718,7 @@ void main() {
 
 // 3개의 수(x, y, z)를 덧셈한 결과가 짝수인지 홀수인지 알려주는 함수
 // parameter(argument): 매개변수
-// positional parameter: 순서가 있는 파라미터
-// optional parameter: 있어도 되고 없어도 되는 선택적인 파라미터
-// named parameter: 이름이 있는 파라미터(순서가 중요하지 않음)
-int add(
-  int x, {
-  required int y,
-  int z = 30,
-}) {
-  int sum = x + y + z;
-
-  print('x: $x');
-  print('y: $y');
-  print('z: $z');
-
-  if (sum % 2 == 0) {
-    print('덧셈 결과가 짝수입니다.');
-  } else {
-    print('덧셈 결과가 홀수입니다.');
-  }
-
-  return sum;
-}
-```
-
+// positio용
 ```dart
 void main() {
   int result1 = add(10, y: 20);
@@ -733,6 +743,7 @@ int add(
     x + y + z;
 ```
 
+### 함수 타입을 이용한 덧셈과 뺄셈 계산
 ```dart
 void main() {
   Operation operation = add;
