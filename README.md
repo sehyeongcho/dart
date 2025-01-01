@@ -44,7 +44,7 @@ void main() {
 }
 ```
 
-### 정수형 변수 연산산
+### 정수형 변수 연산
 ```dart
 void main() {
   // integer
