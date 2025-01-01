@@ -7,7 +7,7 @@ void main() {
 }
 ```
 
-### 변수 사용 및 값 변경
+### 변수 사용
 ```dart
 void main() {
   // variable
@@ -44,7 +44,7 @@ void main() {
 }
 ```
 
-### 정수 연산 (덧셈, 뺄셈, 곱셈, 나눗셈)
+### 정수형 변수 연산산
 ```dart
 void main() {
   // integer
@@ -58,7 +58,7 @@ void main() {
 }
 ```
 
-### 실수형 변수 연산 (덧셈, 뺄셈, 곱셈, 나눗셈)
+### 실수형 변수 연산
 ```dart
 void main() {
   // double
@@ -308,7 +308,7 @@ void main() {
 }
 ```
 
-### 논리 연산자 (AND, OR 사용)
+### 논리 연산자 사용
 ```dart
 void main() {
   // &&(AND), ||(OR)
@@ -567,7 +567,7 @@ void main() {
 }
 ```
 
-### enum 사용 및 비교
+### enum 사용
 ```dart
 enum Status {
   approved,
@@ -743,7 +743,7 @@ int add(
     x + y + z;
 ```
 
-### 함수 타입을 이용한 덧셈과 뺄셈 계산
+### 함수 타입을 이용한 연산
 ```dart
 void main() {
   Operation operation = add;
