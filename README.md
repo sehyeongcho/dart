@@ -193,6 +193,9 @@ void main() {
   print(time1);
 }
 ```
+- `final`은 런타임에 값이 정해져도 괜찮습니다.
+- `const`는 컴파일 타임에 값이 이미 결정되어 있어야 합니다.
+- 따라서, `Datetime.now()`는 런타임에 호출되기 때문에, `const` 변수에 할당할 수 없고, `final` 변수에는 할당할 수 있습니다.
 
 ### final과 const를 이용한 변수 선언
 ```dart
