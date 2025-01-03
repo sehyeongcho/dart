@@ -794,14 +794,14 @@ void main() {
   course1.introduceName();
   course1.introducePrice();
 
-  Course course2 = Course.customConstructor1("수학", 200000);
+  Course course2 = Course.customConstructor1('수학', 200000);
 
   print(course2.name);
   print(course2.price);
   course2.introduceName();
   course2.introducePrice();
 
-  Course course3 = Course.customConstructor2(["영어", 300000]);
+  Course course3 = Course.customConstructor2(['영어', 300000]);
 
   print(course3.name);
   print(course3.price);
@@ -828,7 +828,7 @@ class Course {
   }
 
   void introducePrice() {
-    print("수강료는 ${this.price}원입니다.");
+    print('수강료는 ${this.price}원입니다.');
   }
 }
 ```
