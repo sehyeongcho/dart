@@ -722,19 +722,6 @@ void main() {
 
 // 3개의 수(x, y, z)를 덧셈한 결과가 짝수인지 홀수인지 알려주는 함수
 // parameter(argument): 매개변수
-// positio용
-```dart
-void main() {
-  int result1 = add(10, y: 20);
-  int result2 = add(1, y: 3, z: 5);
-
-  print('result1: $result1');
-  print('result2: $result2');
-  print('result1 + result2: ${result1 + result2}');
-}
-
-// 3개의 수(x, y, z)를 덧셈한 결과가 짝수인지 홀수인지 알려주는 함수
-// parameter(argument): 매개변수
 // positional parameter: 순서가 있는 파라미터
 // optional parameter: 있어도 되고 없어도 되는 선택적인 파라미터
 // named parameter: 이름이 있는 파라미터(순서가 중요하지 않음)
