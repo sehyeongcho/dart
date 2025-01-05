@@ -819,3 +819,51 @@ class Course {
   }
 }
 ```
+
+```dart
+void main() {
+  Course course1 = Course('국어', 100000);
+
+  print(course1.name);
+  print(course1.price);
+  course1.introduceName();
+  course1.introducePrice();
+
+  Course course2 = Course.customConstructor1('수학', 200000);
+
+  print(course2.name);
+  print(course2.price);
+  course2.introduceName();
+  course2.introducePrice();
+
+  Course course3 = Course.customConstructor2(['영어', 300000]);
+
+  print(course3.name);
+  print(course3.price);
+  course3.introduceName();
+  course3.introducePrice();
+}
+
+class Course {
+  final String name;
+  final int price;
+
+  const Course(String name, int price)
+      : this.name = name,
+        this.price = price;
+
+  Course.customConstructor1(this.name, this.price);
+
+  Course.customConstructor2(List value)
+      : this.name = value[0],
+        this.price = value[1];
+
+  void introduceName() {
+    print('${this.name} 수업에 오신 것을 환영합니다.');
+  }
+
+  void introducePrice() {
+    print('수강료는 ${this.price}원입니다.');
+  }
+}
+```
