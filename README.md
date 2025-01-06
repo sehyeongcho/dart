@@ -1,16 +1,17 @@
 # Dart
 
-### Hello, World! 출력
+### Hello World
 ```dart
 void main() {
+  // Hello World
   print('Hello, World!');
 }
 ```
 
-### 변수 사용
+### Variables
 ```dart
 void main() {
-  // variable
+  // Variables
   var message1 = 'Hello, World!';
 
   print(message1);
@@ -23,13 +24,12 @@ void main() {
 
   print(message1);
 }
-
 ```
 
-### 정수형 변수 사용
+### Built-in types(int)
 ```dart
 void main() {
-  // integer
+  // int
   int number1 = 10;
 
   print(number1);
@@ -44,10 +44,10 @@ void main() {
 }
 ```
 
-### 정수형 변수 연산
+### Operators(additive, multiplicative)
 ```dart
 void main() {
-  // integer
+  // Operators(additive, multiplicative)
   int number1 = 10;
   int number2 = 20;
 
@@ -58,7 +58,7 @@ void main() {
 }
 ```
 
-### 실수형 변수 연산
+### Built-in types(double)
 ```dart
 void main() {
   // double
@@ -72,10 +72,10 @@ void main() {
 }
 ```
 
-### 불리언 변수 사용
+### Built-in types(bool)
 ```dart
 void main() {
-  // boolean
+  // bool
   bool isTrue = true;
   bool isFalse = false;
 
@@ -84,7 +84,7 @@ void main() {
 }
 ```
 
-### 문자열 및 타입 확인
+### Built-in types(String)
 ```dart
 void main() {
   // String
@@ -107,7 +107,7 @@ void main() {
 }
 ```
 
-### 문자열 결합 및 문자열 내 변수 삽입
+### Built-in types(String)
 ```dart
 void main() {
   // String
@@ -125,7 +125,7 @@ void main() {
 }
 ```
 
-### 동적 타입 변수 사용 및 타입 변경
+### Built-in types(dynamic)
 ```dart
 void main() {
   // dynamic
@@ -149,10 +149,10 @@ void main() {
 }
 ```
 
-### 널 허용 및 널 불허 변수 사용
+### Non-nullable and nullable types
 ```dart
 void main() {
-  // nullable, non-nullable
+  // Non-nullable and nullable types
   String message1 = 'Hello, World!';
 
   // message1 = null;
@@ -172,10 +172,10 @@ void main() {
 }
 ```
 
-### final과 const를 이용한 값 할당
+### Final and const
 ```dart
 void main() {
-  // final, const
+  // Final and const
   final String message1 = 'Hello, World!';
 
   print(message1);
@@ -197,10 +197,10 @@ void main() {
 - `const`는 컴파일 타임에 값이 이미 결정되어 있어야 합니다.
 - 따라서, `Datetime.now()`는 런타임에 호출되기 때문에, `const` 변수에 할당할 수 없고, `final` 변수에는 할당할 수 있습니다.
 
-### final과 const를 이용한 변수 선언
+### Final and const
 ```dart
 void main() {
-  // final, const
+  // Final and const
   final message1 = 'Hello, World!';
 
   print(message1);
@@ -211,10 +211,10 @@ void main() {
 }
 ```
 
-### 산술 연산자 사용
+### Operators(additive, multiplicative)
 ```dart
 void main() {
-  // operator
+  // Operators(additive, multiplicative)
   int number = 10;
   
   print(number + 2);
@@ -229,10 +229,10 @@ void main() {
 }
 ```
 
-### 증감 연산자 및 복합 대입 연산자 사용
+### Operators(unary postfix, assignment)
 ```dart
 void main() {
-  // operator
+  // Operators(unary postfix, assignment)
   double number = 10.0;
 
   number++;
@@ -261,10 +261,10 @@ void main() {
 }
 ```
 
-### 널 병합 할당 연산자 사용
+### Operators(`??=` operator)
 ```dart
 void main() {
-  // null
+  // Operators(`??=` operator)
   double? number = 10.0;
 
   print(number);
@@ -284,9 +284,10 @@ void main() {
 ```
 - 이 코드에서 `??=` 연산자는 널 병합 할당 연산자입니다. `number`가 `null`인 경우에만 `100.0`을 할당합니다. 만약 `number`가 이미 `null`이 아니라면 아무 일도 일어나지 않습니다.
 
-### 비교 연산자 사용
+### Operators(relational, equality)
 ```dart
 void main() {
+  // Operators(relational)
   int number1 = 1;
   int number2 = 2;
 
@@ -299,9 +300,10 @@ void main() {
 }
 ```
 
-### 타입 검사 연산자 사용
+### Operators(type test)
 ```dart
 void main() {
+  // Operators(type test)
   int number = 1;
 
   print(number is int);
@@ -312,10 +314,10 @@ void main() {
 }
 ```
 
-### 논리 연산자 사용
+### Operators(logical AND, logical OR)
 ```dart
 void main() {
-  // &&(AND), ||(OR)
+  // Operators(logical AND, logical OR)
   bool result1 = 10 > 5 && 20 > 10 && 30 > 15;
 
   print(result1);
@@ -338,10 +340,10 @@ void main() {
 }
 ```
 
-### 리스트 사용 및 인덱싱
+### Lists
 ```dart
 void main() {
-  // List
+  // Lists
   List<String> alphabet = ['a', 'b', 'c', 'd', 'e'];
   List<int> number = [1, 2, 3, 4, 5];
 
@@ -357,10 +359,10 @@ void main() {
 }
 ```
 
-### 리스트 수정 및 메서드 사용
+### Lists
 ```dart
 void main() {
-  // List
+  // Lists
   List<String> alphabet = ['a', 'b', 'c', 'd', 'e'];
   
   print(alphabet.length);
@@ -377,10 +379,10 @@ void main() {
 }
 ```
 
-### 맵 사용 및 수정
+### Maps
 ```dart
 void main() {
-  // Map
+  // Maps
   Map<String, String> dictionary = {
     'apple': '사과',
     'banana': '바나나',
@@ -423,10 +425,10 @@ void main() {
 }
 ```
 
-### 셋 사용 및 수정
+### Sets
 ```dart
 void main() {
-  // Set
+  // Sets
   final Set<String> fruit = {
     'apple',
     'banana',
@@ -447,10 +449,10 @@ void main() {
 }
 ```
 
-### if-else 조건문 사용
+### Control flow statements(if)
 ```dart
 void main() {
-  // if
+  // Control flow statements(if)
   int number = 3;
 
   if (number % 2 == 0) {
@@ -469,10 +471,10 @@ void main() {
 }
 ```
 
-### switch-case 조건문 사용
+### Control flow statements(switch)
 ```dart
 void main() {
-  // switch
+  // Control flow statements(switch)
   int number = 2;
 
   switch (number % 3) {
@@ -491,10 +493,10 @@ void main() {
 }
 ```
 
-### for 루프 및 for-in 루프 사용
+### Control flow statements(For loops)
 ```dart
 void main() {
-  // for loop
+  // Control flow statements(For loops)
   for (int i = 0; i < 10; i++) {
     print(i);
   }
@@ -519,10 +521,10 @@ void main() {
 }
 ```
 
-### while 루프 및 do-while 루프 사용
+### Control flow statements(While and do-while)
 ```dart
 void main() {
-  // while loop
+  // Control flow statements(While)
   int i = 0;
 
   while (i < 10) {
@@ -536,7 +538,7 @@ void main() {
 
   i = 0;
 
-  // do while loop
+  // Control flow statements(Do-while)
   do {
     print(i);
     i++;
@@ -548,10 +550,10 @@ void main() {
 }
 ```
 
-### break 및 continue 제어문 사용
+### Control flow statements(Break and continue)
 ```dart
 void main() {
-  // break
+  // Control flow statements(Break)
   for (int i = 0; i < 10; i++) {
     if (i == 5) {
       break;
@@ -560,7 +562,7 @@ void main() {
     print(i);
   }
 
-  // continue
+  // Control flow statements(Continue)
   for (int i = 0; i < 10; i++) {
     if (i == 5) {
       continue;
@@ -571,8 +573,9 @@ void main() {
 }
 ```
 
-### enum 사용
+### Enumerated types
 ```dart
+// Enumerated types
 enum Status {
   approved,
   pending,
@@ -592,9 +595,10 @@ void main() {
 }
 ```
 
-### 순서 있는 매개변수를 사용하는 함수 정의
+### Functions(Positional parameters)
 ```dart
 void main() {
+  // Functions(Positional parameters)
   add(10, 20, 30);
 
   add(1, 3, 5);
@@ -618,9 +622,10 @@ add(int x, int y, int z) {
 }
 ```
 
-### 선택적 매개변수를 사용하는 함수 정의
+### Functions(Optional parameters)
 ```dart
 void main() {
+  // Functions(Optional parameters)
   add(10);
 
   add(1, 3, 5);
@@ -645,9 +650,10 @@ add(int x, [int y = 20, int z = 30]) {
 }
 ```
 
-### 이름 있는 매개변수를 사용하는 함수 정의
+### Functions(Named parameters)
 ```dart
 void main() {
+  // Functions(Named parameters)
   add(x: 10, y: 20);
 
   add(x: 1, y: 3, z: 5);
@@ -677,9 +683,10 @@ add({
 }
 ```
 
-### 필수 및 선택적 이름 있는 매개변수를 사용하는 함수 정의
+### Functions(Named parameters)
 ```dart
 void main() {
+  // Functions(Named parameters)
   add(x: 10, y: 20);
 
   add(x: 1, y: 3, z: 5);
@@ -709,9 +716,10 @@ add({
 }
 ```
 
-### 매개변수를 혼합하여 사용하는 함수 정의
+### Functions
 ```dart
 void main() {
+  // Functions
   int result1 = add(10, y: 20);
   int result2 = add(1, y: 3, z: 5);
 
@@ -737,7 +745,7 @@ int add(
 - `() => x + y + z`는 `() { return x + y + z; }`와 동일합니다.
 - 화살표 함수에서는 반환 값이 표현식으로 바로 반환되므로 `return` 키워드를 생략할 수 있습니다.
 
-### 함수 타입을 이용한 연산
+### Functions(Function types)
 ```dart
 void main() {
   Operation operation = add;
