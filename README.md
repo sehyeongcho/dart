@@ -1,9 +1,9 @@
 # Dart
 
-### Hello World
+### Introduction to Dart(Hello World)
 ```dart
 void main() {
-  // Hello World
+  // Introduction to Dart(Hello World)
   print('Hello, World!');
 }
 ```
@@ -29,7 +29,7 @@ void main() {
 ### Built-in types(int)
 ```dart
 void main() {
-  // int
+  // Built-in types(int)
   int number1 = 10;
 
   print(number1);
@@ -61,7 +61,7 @@ void main() {
 ### Built-in types(double)
 ```dart
 void main() {
-  // double
+  // Built-in types(double)
   double number1 = 7.5;
   double number2 = 2.5;
 
@@ -75,7 +75,7 @@ void main() {
 ### Built-in types(bool)
 ```dart
 void main() {
-  // bool
+  // Built-in types(bool)
   bool isTrue = true;
   bool isFalse = false;
 
@@ -87,7 +87,7 @@ void main() {
 ### Built-in types(String)
 ```dart
 void main() {
-  // String
+  // Built-in types(String)
   String message1 = 'Hello, World!';
   String message2 = 'Hello, New World!';
 
@@ -110,7 +110,7 @@ void main() {
 ### Built-in types(String)
 ```dart
 void main() {
-  // String
+  // Built-in types(String)
   String message1 = 'Hello,';
   String message2 = 'World!';
 
@@ -128,7 +128,7 @@ void main() {
 ### Built-in types(dynamic)
 ```dart
 void main() {
-  // dynamic
+  // Built-in types(dynamic)
   dynamic message1 = 'Hello, World!';
 
   print(message1);
@@ -149,10 +149,10 @@ void main() {
 }
 ```
 
-### Non-nullable and nullable types
+### Understanding null safety(Non-nullable and nullable types)
 ```dart
 void main() {
-  // Non-nullable and nullable types
+  // Understanding null safety(Non-nullable and nullable types)
   String message1 = 'Hello, World!';
 
   // message1 = null;
@@ -172,10 +172,10 @@ void main() {
 }
 ```
 
-### Final and const
+### Variables(Final and const)
 ```dart
 void main() {
-  // Final and const
+  // Variables(Final and const)
   final String message1 = 'Hello, World!';
 
   print(message1);
@@ -197,10 +197,10 @@ void main() {
 - `const`는 컴파일 타임에 값이 이미 결정되어 있어야 합니다.
 - 따라서, `Datetime.now()`는 런타임에 호출되기 때문에, `const` 변수에 할당할 수 없고, `final` 변수에는 할당할 수 있습니다.
 
-### Final and const
+### Variables(Final and const)
 ```dart
 void main() {
-  // Final and const
+  // Variables(Final and const)
   final message1 = 'Hello, World!';
 
   print(message1);
@@ -287,7 +287,7 @@ void main() {
 ### Operators(relational, equality)
 ```dart
 void main() {
-  // Operators(relational)
+  // Operators(relational, equality)
   int number1 = 1;
   int number2 = 2;
 
@@ -340,10 +340,10 @@ void main() {
 }
 ```
 
-### Lists
+### Collections(Lists)
 ```dart
 void main() {
-  // Lists
+  // Collections(Lists)
   List<String> alphabet = ['a', 'b', 'c', 'd', 'e'];
   List<int> number = [1, 2, 3, 4, 5];
 
@@ -359,10 +359,10 @@ void main() {
 }
 ```
 
-### Lists
+### Collections(Lists)
 ```dart
 void main() {
-  // Lists
+  // Collections(Lists)
   List<String> alphabet = ['a', 'b', 'c', 'd', 'e'];
   
   print(alphabet.length);
@@ -379,10 +379,10 @@ void main() {
 }
 ```
 
-### Maps
+### Collections(Maps)
 ```dart
 void main() {
-  // Maps
+  // Collections(Maps)
   Map<String, String> dictionary = {
     'apple': '사과',
     'banana': '바나나',
@@ -425,10 +425,10 @@ void main() {
 }
 ```
 
-### Sets
+### Collections(Sets)
 ```dart
 void main() {
-  // Sets
+  // Collections(Sets)
   final Set<String> fruit = {
     'apple',
     'banana',
@@ -449,10 +449,10 @@ void main() {
 }
 ```
 
-### Control flow statements(if)
+### Branches(If)
 ```dart
 void main() {
-  // Control flow statements(if)
+  // Branches(If)
   int number = 3;
 
   if (number % 2 == 0) {
@@ -471,10 +471,10 @@ void main() {
 }
 ```
 
-### Control flow statements(switch)
+### Branches(Switch statements)
 ```dart
 void main() {
-  // Control flow statements(switch)
+  // Branches(Switch statements)
   int number = 2;
 
   switch (number % 3) {
@@ -493,10 +493,10 @@ void main() {
 }
 ```
 
-### Control flow statements(For loops)
+### Loops(For loops)
 ```dart
 void main() {
-  // Control flow statements(For loops)
+  // Loops(For loops)
   for (int i = 0; i < 10; i++) {
     print(i);
   }
@@ -521,10 +521,10 @@ void main() {
 }
 ```
 
-### Control flow statements(While and do-while)
+### Loops(While and do-while)
 ```dart
 void main() {
-  // Control flow statements(While)
+  // Loops(While and do-while)
   int i = 0;
 
   while (i < 10) {
@@ -550,10 +550,10 @@ void main() {
 }
 ```
 
-### Control flow statements(Break and continue)
+### Loops(Break and continue)
 ```dart
 void main() {
-  // Control flow statements(Break)
+  // Loops(Break and continue)
   for (int i = 0; i < 10; i++) {
     if (i == 5) {
       break;
@@ -748,6 +748,7 @@ int add(
 ### Functions(Function types)
 ```dart
 void main() {
+  // Functions(Function types)
   Operation operation = add;
 
   int result1 = operation(10, 20, 30);
