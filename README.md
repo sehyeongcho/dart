@@ -106,6 +106,9 @@ void main() {
   print(test.runtimeType);
 }
 ```
+- `var`는 타입이 아니며, 타입을 추론하는 키워드입니다.
+- 가독성과 유지보수를 위해 타입을 명시적으로 작성하는 것이 좋습니다.
+- 긴 타입 이름을 간결하게 작성하려면 `var`를 사용하는 것이 좋습니다.
 
 ### Built-in types(String)
 ```dart
@@ -148,6 +151,8 @@ void main() {
   // message2 = 10;
 }
 ```
+- `dynamic`: 처음 선언한 타입이 고정되지 않으며, 이후 다른 타입으로 변경 가능합니다. 타입 안전성을 포기하고 유연성을 얻습니다.
+- `var`: 첫 할당 시점의 타입으로 고정되며, 이후 다른 타입으로 변경할 수 없습니다. 타입 안정성을 유지하며 코드가 간결해집니다.
 
 ### Understanding null safety(Non-nullable and nullable types)
 ```dart
@@ -171,6 +176,9 @@ void main() {
   print(message2!);
 }
 ```
+- 모든 타입은 해당 타입만 할당될 수 있는 non-nullable 타입과, `null`도 함께 할당될 수 있는 nullable 타입으로 나뉩니다.
+- `?` 키워드를 사용하면 null을 할당할 수 있는 nullable 타입으로 선언됩니다.
+- `!` 키워드를 사용하면 null이 아님을 보장할 수 있으며, 실제로 null인 경우 런타임 에러가 발생합니다.
 
 ### Variables(Final and const)
 ```dart
@@ -594,6 +602,7 @@ void main() {
   }
 }
 ```
+- `enum`은 데이터의 수와 종류를 제한하여 강제하기 위해 사용됩니다.
 
 ### Functions(Positional parameters)
 ```dart
@@ -621,6 +630,7 @@ add(int x, int y, int z) {
   }
 }
 ```
+- 함수의 목적, 파라미터, 반환값, 테스트 케이스를 미리 작성한 후 구현하는 것이 좋습니다.
 
 ### Functions(Optional parameters)
 ```dart
@@ -667,7 +677,7 @@ void main() {
 add({
   required int x,
   required int y,
-  int z = 30,
+  int z = 30, // `required` 키워드가 없으면 optional parameter입니다.
 }) {
   int sum = x + y + z;
 
