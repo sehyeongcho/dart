@@ -520,7 +520,6 @@ void main() {
 
   sum = 0;
 
-  // for in loop
   for (int number in numbers) {
     sum += number;
   }
@@ -546,7 +545,6 @@ void main() {
 
   i = 0;
 
-  // Control flow statements(Do-while)
   do {
     print(i);
     i++;
@@ -570,7 +568,6 @@ void main() {
     print(i);
   }
 
-  // Control flow statements(Continue)
   for (int i = 0; i < 10; i++) {
     if (i == 5) {
       continue;
