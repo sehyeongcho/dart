@@ -1276,3 +1276,24 @@ class Test {}
 // 모든 클래스는 Object 클래스로부터 상속 받기 때문에 Object Oriented Programming이라 부릅니다.
 ```
 
+```dart
+void main() {
+  List<String> blackpink = ['로제', '지수', '리사', '제니', '제니'];
+
+  print(blackpink);
+  print(blackpink.asMap());
+  print(blackpink.toSet());
+
+  Map blackpinkMap = blackpink.asMap();
+
+  print(blackpinkMap);
+  print(blackpinkMap.keys.toList());
+  print(blackpinkMap.values.toList());
+
+  Set blackpinkSet = Set.from(blackpink);
+
+  print(blackpinkSet);
+  print(blackpinkSet.toList());
+}
+```
+
