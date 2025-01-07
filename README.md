@@ -1047,3 +1047,72 @@ class _Course {
 }
 ```
 - Dart에서 하나의 파일은 하나의 라이브러리로 간주됩니다. 따라서 `_`는 파일 단위로 private를 설정하는 역할을 합니다. 다른 파일에서 해당 라이브러리를 `import`하더라도 `_`로 시작하는 요소는 접근할 수 없습니다.
+
+### Classes(Inheritance)
+```dart
+void main() {
+  // Classes(Inheritance)
+  Course course = const Course(name: '수학', price: 300000);
+
+  course.sayCoursePrice();
+
+  HighCourse highCourse = const HighCourse('고등수학', 500000);
+
+  highCourse.sayCoursePrice();
+  highCourse.sayHighCourse();
+
+  MiddleCourse middleCourse = const MiddleCourse('중등수학', 200000);
+
+  middleCourse.sayCoursePrice();
+  middleCourse.sayMiddleCourse();
+
+  print('----- Type Comparison -----');
+  print(course is Course);
+  print(course is HighCourse);
+  print(course is MiddleCourse);
+
+  print(highCourse is Course);
+  print(highCourse is HighCourse);
+  print(highCourse is MiddleCourse);
+
+  print(middleCourse is Course);
+  print(middleCourse is HighCourse);
+  print(middleCourse is MiddleCourse);
+}
+
+class Course {
+  final String name;
+  final int price;
+
+  const Course({
+    required this.name,
+    required this.price,
+  });
+
+  void sayCourseName() {
+    print('${this.name} 수업에 오신 것을 환영합니다.');
+  }
+
+  void sayCoursePrice() {
+    print('${this.name} 수업의 수강료는 ${this.price}원입니다.');
+  }
+}
+
+class HighCourse extends Course {
+  const HighCourse(String name, int price) : super(name: name, price: price);
+
+  void sayHighCourse() {
+    print('고등 과정입니다.');
+  }
+}
+
+class MiddleCourse extends Course {
+  const MiddleCourse(String name, int price) : super(name: name, price: price);
+
+  void sayMiddleCourse() {
+    print('중등 과정입니다.');
+  }
+}
+```
+- 자식 클래스는 부모 클래스의 모든 public 및 protected 속성을 상속받습니다.
+- 부모 클래스의 생성자가 초기화된 속성을 가진 경우, `super`를 통해 호출해야 합니다.
