@@ -940,3 +940,107 @@ class Course {
 - 위젯 트리가 업데이트될 때 Flutter는 기존 트리와 새로 생성된 트리를 비교하여 어떤 위젯이 변경되었는지 판단합니다. 변경된 위젯만 새로 렌더링하고, 나머지는 재사용하거나 그대로 둡니다.
 - `const` 키워드를 사용하면 컴파일 타임에 메모리에 고정되며, 이후 동일한 내용을 가진 위젯이 재생성될 필요가 없습니다. 빌드가 반복되더라도 기존 메모리를 재사용합니다. `const` 키워드를 사용하지 않으면 매 빌드 시 Flutter는 항상 새로운 객체를 생성합니다. 이로 인해 메모리 사용량이 증가하고, 비교 작업에도 시간이 더 소요됩니다. `const` 위젯은 내용이 같으면 참조도 같기 때문에 Flutter가 참조만 비교하면 되지만, `const`가 아닌 위젯은 내용이 같아도 참조가 다르기 때문에 Flutter가 내용도 비교해야 하기 때문입니다.
 - `const` 키워드를 사용하지 않으면 Dart는 각 인스턴스를 별도의 객체로 생성하므로, 같은 내용이라도 서로 다른 메모리 주소를 가지게 됩니다. 반면, `const` 키워드를 사용하여 생성한 인스턴스는 컴파일 타임 상수로 간주되며, 같은 내용의 상수는 동일한 메모리 주소를 공유하게 됩니다.
+
+### Classes(getter, setter)
+```dart
+void main() {
+  // Classes(getter, setter)
+  Course course1 = Course('국어', 100000);
+
+  Course course2 = Course.customConstructor1('수학', 200000);
+
+  Course course3 = Course.customConstructor2(['영어', 300000]);
+
+  print(course1.getName);
+  print(course2.getName);
+  print(course3.getName);
+
+  course1.setName = '언어';
+  print(course1.getName);
+}
+
+class Course {
+  String name;
+  int price;
+
+  Course(String name, int price)
+      : this.name = name,
+        this.price = price;
+
+  Course.customConstructor1(this.name, this.price);
+
+  Course.customConstructor2(List value)
+      : this.name = value[0],
+        this.price = value[1];
+
+  void introduceName() {
+    print('${this.name} 수업에 오신 것을 환영합니다.');
+  }
+
+  void introducePrice() {
+    print('수강료는 ${this.price}원입니다.');
+  }
+
+  // getter
+  String get getName {
+    return this.name;
+  }
+
+  // setter
+  set setName(String name) {
+    this.name = name;
+  }
+}
+```
+
+### Libraries & imports(public, private)
+```dart
+void main() {
+  // Libraries & imports(public, private)
+  _Course course1 = _Course('국어', 100000);
+
+  _Course course2 = _Course.customConstructor1('수학', 200000);
+
+  _Course course3 = _Course.customConstructor2(['영어', 300000]);
+
+  print(course1.getName);
+  print(course2.getName);
+  print(course3.getName);
+
+  course1.setName = '언어';
+  print(course1.getName);
+}
+
+class _Course {
+  String name;
+  int price;
+
+  _Course(String name, int price)
+      : this.name = name,
+        this.price = price;
+
+  _Course.customConstructor1(this.name, this.price);
+
+  _Course.customConstructor2(List value)
+      : this.name = value[0],
+        this.price = value[1];
+
+  void introduceName() {
+    print('${this.name} 수업에 오신 것을 환영합니다.');
+  }
+
+  void introducePrice() {
+    print('수강료는 ${this.price}원입니다.');
+  }
+
+  // getter
+  String get getName {
+    return this.name;
+  }
+
+  // setter
+  set setName(String name) {
+    this.name = name;
+  }
+}
+```
