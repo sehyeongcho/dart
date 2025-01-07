@@ -1297,3 +1297,237 @@ void main() {
 }
 ```
 
+```dart
+void main() {
+  List<String> blackpink = ['로제', '지수', '리사', '제니'];
+
+  final newBlackpink = blackpink.map((x) { // map 함수를 사용하면 기존 리스트가 변경되지 않고 새로운 리스트가 생성됩니다.
+    return '블랙핑크 $x';
+  });
+
+  print(blackpink);
+  print(newBlackpink);
+
+  final newBlackpink2 = blackpink.map((x) => '블랙핑크 $x');
+
+  print(newBlackpink2.toList());
+
+  print(blackpink == blackpink);
+  print(blackpink == newBlackpink);
+  print(newBlackpink == newBlackpink2);
+
+  // [1.jpg, 3.jpg, 5.jpg, 7.jpg, 9.jpg]
+  String number = '13579';
+
+  final parsed = number.split('').map((x) => '$x.jpg').toList();
+
+  print(parsed);
+}
+```
+
+```dart
+void main() {
+  Map<String, String> harryPotter = {
+    'Harry Potter': '해리 포터',
+    'Ron Weasley': '론 위즐리',
+    'Hermione Granger': '헤르미온느 그레인저',
+  };
+
+  final result = harryPotter.map((key, value) => MapEntry(
+        'Harry Potter Character $key',
+        '해리 포터 캐릭터 $value',
+      )); // map 함수를 사용하면 기존 맵이 변경되지 않고 새로운 맵이 생성됩니다.
+
+  print(harryPotter);
+  print(result);
+
+  final keys = harryPotter.keys.map((x) => 'HPC $x').toList();
+  final values = harryPotter.values.map((x) => '해리 포터 캐릭터 $x').toList();
+
+  print(keys);
+  print(values);
+}
+```
+
+```dart
+void main() {
+  Set<String> blackpinkSet = {'로제', '지수', '제니', '리사'};
+
+  final newSet = blackpinkSet.map((x) => '블랙핑크 $x').toList();
+
+  print(newSet);
+}
+```
+
+```dart
+void main() {
+  List<Map<String, String>> people = [
+    {
+      'name': '로제',
+      'group': '블랙핑크',
+    },
+    {
+      'name': '지수',
+      'group': '블랙핑크',
+    },
+    {
+      'name': '진',
+      'group': '방탄소년단',
+    },
+    {
+      'name': '정국',
+      'group': '방탄소년단',
+    },
+  ];
+
+  print(people);
+
+  final blackpink = people.where((x) => x['group'] == '블랙핑크');
+  final bts = people.where((x) => x['group'] == '방탄소년단');
+
+  print(blackpink);
+  print(bts);
+}
+```
+
+```dart
+void main() {
+  List<int> numbers = [1, 3, 5, 7, 9];
+
+  final sum = numbers.reduce((prev, next) {
+    print('----------');
+    print('prev: $prev');
+    print('next: $next');
+    print('prev + next: ${prev + next}');
+
+    return prev + next;
+  }); // reduce 함수를 사용하면 반환 타입이 아이템의 타입으로 고정됩니다. 여기서는 int로 고정됩니다.
+
+  print(sum);
+
+  List<String> words = [
+    '안녕하세요 ',
+    '저는 ',
+    '학생입니다.',
+  ];
+
+  final sentence = words.reduce((prev, next) =>
+      prev +
+      next); // reduce 함수를 사용하면 반환 타입이 아이템의 타입으로 고정됩니다. 여기서는 String으로 고정됩니다.
+
+  print(sentence);
+}
+```
+
+```dart
+void main() {
+  List<int> numbers = [1, 3, 5, 7, 9];
+
+  final sum = numbers.fold<int>(0, (prev, next) {
+    print('prev: $prev');
+    print('next: $next');
+    print('prev + next: ${prev + next}');
+
+    return prev + next;
+  });
+
+  print(sum);
+
+  List<String> words = [
+    '안녕하세요 ',
+    '저는 ',
+    '학생입니다.',
+  ];
+
+  final sentence = words.fold<String>('', (prev, next) => prev + next);
+
+  print(sentence);
+
+  final count = words.fold<int>(
+      0,
+      (prev, next) =>
+          prev +
+          next.length); // fold 함수를 사용하면 반환 타입이 고정되지 않습니다. 어떤 타입이든 반환 가능하며, 반환할 타입을 제너릭으로 명시하시면 됩니다.
+
+  print(count);
+}
+```
+
+```dart
+void main() {
+  List<int> even = [2, 4, 6, 8];
+
+  List<int> odd = [1, 3, 5, 7, 9];
+
+  // Cascading operator
+  // ...
+  print([...even, ...odd]);
+  print(even);
+  print([...even]);
+  print(even == [...even]); // Cascading operator를 사용하면 새로운 주소에 값을 할당합니다.
+}
+```
+
+```dart
+void main() {
+  final List<Map<String, String>> people = [
+    {
+      'name': '로제',
+      'group': '블랙핑크',
+    },
+    {
+      'name': '지수',
+      'group': '블랙핑크',
+    },
+    {
+      'name': '진',
+      'group': '방탄소년단',
+    },
+    {
+      'name': '정국',
+      'group': '방탄소년단',
+    },
+  ];
+
+  print(people);
+
+  final parsedPeople = people
+      .map((x) => Person(
+            name: x['name']!,
+            group: x['group']!,
+          ))
+      .toList();
+
+  print(parsedPeople);
+
+  final bts = parsedPeople.where((x) => x.group == '방탄소년단').toList();
+
+  print(bts);
+
+  final result = people
+      .map((x) => Person(
+            name: x['name']!,
+            group: x['group']!,
+          ))
+      .where((x) => x.group == '방탄소년단')
+      .toList()
+      .fold<int>(0, (prev, next) => prev + next.name.length);
+
+  print(result);
+}
+// Map 안에 수많은 데이터가 들어 있다고 가정할 때, 데이터 중 오타가 없는지, 지정된 key 외에 다른 key가 없는지 확신할 수 있는 방법이 없습니다. 따라서 서버에서 이러한 JSON 형태의 데이터를 받아와서 프론트엔드에서 사용하려면, 클래스로 형변환을 해주는 것이 중요합니다. 클래스로 형변환을 하게 되면 데이터가 구조화되고 신뢰할 수 있는 형태로 가공됩니다.
+
+class Person {
+  final String name;
+  final String group;
+
+  Person({
+    required this.name,
+    required this.group,
+  });
+
+  String toString() {
+    return 'name: $name, group: $group';
+  }
+}
+```
