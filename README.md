@@ -787,9 +787,10 @@ int subtract(int x, int y, int z) => x - y - z;
 int calculate(int x, int y, int z, Operation operation) => operation(x, y, z);
 ```
 
-### 다양한 생성자를 활용한 클래스 설계 및 메서드 호출
+### Classes(Using constructors)
 ```dart
 void main() {
+  // Classes(Using constructors)
   Course course1 = Course('국어', 100000);
 
   print(course1.name);
@@ -836,8 +837,10 @@ class Course {
 }
 ```
 
+### Classes(Using constructors)
 ```dart
 void main() {
+  // Classes(Using constructors)
   Course course1 = Course('국어', 100000);
 
   print(course1.name);
@@ -883,3 +886,9 @@ class Course {
   }
 }
 ```
+- Dart에서 `final`로 선언된 변수는 생성자에서 값을 초기화할 수 있지만, 한 번 설정된 값은 변경할 수 없습니다. 이는 불변성을 보장합니다.
+- Dart에서 `const constructor`를 사용하면 클래스의 모든 필드가 `final`이어야 하며, 이는 해당 클래스가 컴파일 타임 상수로 처리될 수 있도록 보장합니다.
+- Flutter에서 위젯을 작성할 때 `const`를 활용하면, 동일한 값의 인스턴스를 재사용하여 메모리와 성능을 최적화할 수 있습니다. 이는 특히 Flutter에서 빌드 트리가 반복적으로 재생성되는 상황에서 효과적입니다.
+- 위젯 트리가 업데이트될 때 Flutter는 기존 트리와 새로 생성된 트리를 비교하여 어떤 위젯이 변경되었는지 판단합니다. 변경된 위젯만 새로 렌더링하고, 나머지는 재사용하거나 그대로 둡니다.
+- `const` 키워드를 사용하면 컴파일 타임에 메모리에 고정되며, 이후 동일한 내용을 가진 위젯이 재생성될 필요가 없습니다. 빌드가 반복되더라도 기존 메모리를 재사용합니다. `const` 키워드를 사용하지 않으면 매 빌드 시 Flutter는 항상 새로운 객체를 생성합니다. 이로 인해 메모리 사용량이 증가하고, 비교 작업에도 시간이 더 소요됩니다. `const` 위젯은 내용이 같으면 참조도 같기 때문에 Flutter가 참조만 비교하면 되지만, `const`가 아닌 위젯은 내용이 같아도 참조가 다르기 때문에 Flutter가 내용도 비교해야 하기 때문입니다.
+- `const` 키워드를 사용하지 않으면 Dart는 각 인스턴스를 별도의 객체로 생성하므로, 같은 내용이라도 서로 다른 메모리 주소를 가지게 됩니다. 반면, `const` 키워드를 사용하여 생성한 인스턴스는 컴파일 타임 상수로 간주되며, 같은 내용의 상수는 동일한 메모리 주소를 공유하게 됩니다.
