@@ -941,10 +941,10 @@ class Course {
 - `const` 키워드를 사용하면 컴파일 타임에 메모리에 고정되며, 이후 동일한 내용을 가진 위젯이 재생성될 필요가 없습니다. 빌드가 반복되더라도 기존 메모리를 재사용합니다. `const` 키워드를 사용하지 않으면 매 빌드 시 Flutter는 항상 새로운 객체를 생성합니다. 이로 인해 메모리 사용량이 증가하고, 비교 작업에도 시간이 더 소요됩니다. `const` 위젯은 내용이 같으면 참조도 같기 때문에 Flutter가 참조만 비교하면 되지만, `const`가 아닌 위젯은 내용이 같아도 참조가 다르기 때문에 Flutter가 내용도 비교해야 하기 때문입니다.
 - `const` 키워드를 사용하지 않으면 Dart는 각 인스턴스를 별도의 객체로 생성하므로, 같은 내용이라도 서로 다른 메모리 주소를 가지게 됩니다. 반면, `const` 키워드를 사용하여 생성한 인스턴스는 컴파일 타임 상수로 간주되며, 같은 내용의 상수는 동일한 메모리 주소를 공유하게 됩니다.
 
-### Classes(getter, setter)
+### Methods(Getters and setters)
 ```dart
 void main() {
-  // Classes(getter, setter)
+  // Methods(Getters and setters)
   Course course1 = Course('국어', 100000);
 
   Course course2 = Course.customConstructor1('수학', 200000);
@@ -1117,8 +1117,10 @@ class MiddleCourse extends Course {
 - 자식 클래스는 부모 클래스의 모든 public 및 protected 속성을 상속받습니다.
 - 부모 클래스의 생성자가 초기화된 속성을 가진 경우, `super`를 통해 호출해야 합니다.
 
+### Extend a class(Overriding members)
 ```dart
 void main() {
+  // Extend a class(Overriding members)
   TimesTwo timesTwo = TimesTwo(2);
 
   print(timesTwo.calculate());
@@ -1168,7 +1170,6 @@ void main() {
 }
 
 class Employee {
-  // static은 instance에 귀속되지 않고 class에 귀속됩니다.
   // 직원이 일하는 건물
   static String? building;
   // 직원 이름
@@ -1187,6 +1188,7 @@ class Employee {
   }
 }
 ```
+- `static` 키워드는 instance에 속하지 않고 class에 속하는 멤버를 정의합니다.
 
 ```dart
 void main() {
