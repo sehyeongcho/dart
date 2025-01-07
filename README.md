@@ -1116,3 +1116,163 @@ class MiddleCourse extends Course {
 ```
 - 자식 클래스는 부모 클래스의 모든 public 및 protected 속성을 상속받습니다.
 - 부모 클래스의 생성자가 초기화된 속성을 가진 경우, `super`를 통해 호출해야 합니다.
+
+```dart
+void main() {
+  TimesTwo timesTwo = TimesTwo(2);
+
+  print(timesTwo.calculate());
+
+  TimesTen timesFive = TimesTen(2);
+
+  print(timesFive.calculate());
+}
+
+// method - function(class 내부에 있는 함수)
+// override - 덮어쓰다(우선시하다)
+class TimesTwo {
+  final int number;
+
+  TimesTwo(this.number);
+
+  // method
+  int calculate() {
+    return number * 2;
+  }
+}
+
+class TimesTen extends TimesTwo {
+  TimesTen(int number) : super(number);
+
+  @override
+  int calculate() {
+    return super.calculate() * 5;
+  }
+}
+```
+
+```dart
+void main() {
+  Employee employee1 = Employee('name1');
+  Employee employee2 = Employee('name2');
+
+  employee1.printNameAndBuilding(); // instance에 귀속
+  employee2.printNameAndBuilding(); // instance에 귀속
+
+  Employee.building = 'building'; // class에 귀속
+
+  employee1.printNameAndBuilding(); // instance에 귀속
+  employee2.printNameAndBuilding(); // instance에 귀속
+
+  Employee.printBuilding(); // class에 귀속
+}
+
+class Employee {
+  // static은 instance에 귀속되지 않고 class에 귀속됩니다.
+  // 직원이 일하는 건물
+  static String? building;
+  // 직원 이름
+  final String name;
+
+  Employee(
+    this.name,
+  );
+
+  void printNameAndBuilding() {
+    print('직원명: $name, 근무지: $building');
+  }
+
+  static void printBuilding() {
+    print('근무지: $building');
+  }
+}
+```
+
+```dart
+void main() {
+  BoyGroup bts = BoyGroup('bts');
+  GirlGroup blackpink = GirlGroup('blackpink');
+
+  bts.sayName();
+  blackpink.sayName();
+
+  print(bts is IdolInterface);
+  print(bts is BoyGroup);
+  print(bts is GirlGroup);
+
+  print(blackpink is IdolInterface);
+  print(blackpink is BoyGroup);
+  print(blackpink is GirlGroup);
+}
+
+// interface: 구현해야 할 속성을 강제해야 할 때 사용합니다.
+abstract class IdolInterface {
+  // abstract 키워드를 사용하면 이 타입으로 instance를 생성할 수 없게 됩니다. 클래스가 아닌 인터페이스임을 알리기 위해 사용합니다.
+  String name;
+
+  IdolInterface(this.name);
+
+  void sayName();
+}
+
+class BoyGroup implements IdolInterface {
+  String name;
+
+  BoyGroup(this.name);
+
+  void sayName() {
+    print('안녕하세요. $name입니다.');
+  }
+}
+
+class GirlGroup implements IdolInterface {
+  String name;
+
+  GirlGroup(this.name);
+
+  void sayName() {
+    print('안녕하세요. $name입니다.');
+  }
+}
+```
+
+```dart
+void main() {
+  Lecture<String, String> lecture1 = Lecture('123', 'lecture1');
+
+  lecture1.printIdType();
+
+  Lecture<int, String> lecture2 = Lecture(123, 'lecture2');
+
+  lecture2.printIdType();
+}
+
+// generic - 타입을 외부에서 받을 때 사용합니다.
+class Lecture<T, X> {
+  final T id;
+  final X name;
+
+  Lecture(this.id, this.name);
+
+  void printIdType() {
+    print(id.runtimeType);
+  }
+}
+```
+
+```dart
+void main() {
+  Test test = Test();
+
+  print(test.hashCode);
+  print(test.runtimeType);
+  print(test.toString());
+}
+
+// Object Oriented Programming(OOP)
+// 객체지향 프로그래밍
+class Test {}
+
+// 모든 클래스는 Object 클래스로부터 상속 받기 때문에 Object Oriented Programming이라 부릅니다.
+```
+
