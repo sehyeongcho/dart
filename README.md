@@ -1684,3 +1684,172 @@ Future<int> addNumbers(int number1, int number2) async {
   return number1 + number2;
 }
 ```
+
+### Stream
+```dart
+import 'dart:async';
+
+void main() {
+  final streamController = StreamController();
+  final stream = streamController.stream;
+
+  final streamListener1 = stream.listen((value) {
+    print('Listener 1: $value');
+  });
+
+  streamController.sink.add(1);
+  streamController.sink.add(2);
+  streamController.sink.add(3);
+  streamController.sink.add(4);
+  streamController.sink.add(5);
+}
+```
+- `Future`를 사용하면 하나의 비동기 작업만 처리할 수 있지만, `Stream`은 여러 개의 비동기 작업을 하나의 스트림에서 처리할 수 있습니다.
+
+### Broadcast stream
+```dart
+import 'dart:async';
+
+void main() {
+  final streamController = StreamController();
+  final stream = streamController.stream.asBroadcastStream();
+
+  final streamListener1 = stream.listen((value) {
+    print('Listener 1: $value');
+  });
+
+  final streamListener2 = stream.listen((value) {
+    print('Listener 2: $value');
+  });
+
+  streamController.sink.add(1);
+  streamController.sink.add(2);
+  streamController.sink.add(3);
+  streamController.sink.add(4);
+  streamController.sink.add(5);
+}
+```
+- 기본적으로 `StreamController`는 단일 리스너만을 지원합니다. 즉, 스트림에 한 번에 하나의 리스너만 구독할 수 있습니다.
+- 하지만 `asBroadcastStream()`을 사용하면 여러 리스너가 스트림을 동시에 구독할 수 있습니다. 이는 브로드캐스트 스트림이기 때문에 여러 리스너가 동시에 데이터를 받을 수 있게 해줍니다.
+
+### Filtered stream
+```dart
+import 'dart:async';
+
+void main() {
+  final streamController = StreamController();
+  final stream = streamController.stream.asBroadcastStream();
+
+  final streamListener1 = stream.where((value) => value % 2 == 0).listen((value) {
+    print('Listener 1: $value');
+  });
+
+  final streamListener2 = stream.where((value) => value % 2 == 1).listen((value) {
+    print('Listener 2: $value');
+  });
+
+  streamController.sink.add(1);
+  streamController.sink.add(2);
+  streamController.sink.add(3);
+  streamController.sink.add(4);
+  streamController.sink.add(5);
+}
+```
+- `stream.where()`는 필터링을 통해 조건에 맞는 데이터만 통과시킵니다.
+  - `streamListener1`은 짝수만 필터링하여 구독합니다.
+  - `streamListener2`는 홀수만 필터링하여 구독합니다.
+- 각 리스너는 자신이 구독한 스트림에서 조건에 맞는 값만 받게 됩니다.
+- `where()`를 사용하면 스트림에서 특정 조건에 맞는 값만 필터링하여 구독할 수 있습니다.
+- 필터링된 값만 리스너에게 전달되므로, 구독자가 자신이 필터링한 조건에 맞는 데이터만 받게 됩니다.
+- 이로 인해 구독자1이 짝수만 구독하고 있다면 홀수는 전달되지 않으며, 구독자2는 홀수만 구독하므로 짝수는 전달되지 않습니다.
+
+### Future function
+```dart
+import 'dart:async';
+
+void main() async {
+  final result = await calculate(5);
+
+  print(result);
+}
+
+Future<int> calculate(int number) async {
+  for (int i = 0; i < 5; i++) {
+    return i * number;
+  }
+
+  return 0;
+}
+```
+- `Future`는 한 번만 값을 반환할 수 있습니다.
+- 위 코드에서 `return`이 호출되는 순간, 함수가 즉시 종료되며 남은 `for` 루프는 실행되지 않습니다.
+- 따라서 `Future` 기반 비동기 함수는 한 번의 결과값을 비동기로 처리할 때 적합하지만, 여러 값을 순차적으로 반환하려면 한계가 있습니다.
+
+### Stream function
+```dart
+import 'dart:async';
+
+void main() {
+  calculate(5).listen((value) {
+    print('$value');
+  });
+}
+
+Stream<int> calculate(int number) async* {
+  for (int i = 0; i < 5; i++) {
+    yield i * number;
+  }
+}
+```
+- `Stream`은 데이터를 여러 번에 걸쳐 반환할 수 있습니다.
+- `async*`와 `yield`를 사용하면 함수가 종료되지 않고, 반복적으로 값을 생성하고 스트림에 추가합니다.
+- 이를 통해 구독자는 스트림에 추가되는 값을 실시간으로 받을 수 있습니다.
+- `yield`는 값을 스트림에 추가하면서 함수의 실행 상태를 유지합니다. 다음 값을 생성할 때까지 대기 상태로 들어가며, 필요하면 비동기 작업도 수행할 수 있습니다.
+
+### Future, stream function
+```dart
+import 'dart:async';
+
+void main() {
+  calculate(5).listen((value) {
+    print('$value');
+  });
+
+  calculate(7).listen((value) {
+    print('$value');
+  });
+}
+
+Stream<int> calculate(int number) async* {
+  for (int i = 0; i < 5; i++) {
+    yield i * number;
+
+    await Future.delayed(Duration(seconds: 1));
+  }
+}
+```
+
+### `await` in `Future`, `yield*` in `Stream`
+```dart
+import 'dart:async';
+
+void main() {
+  playAllStream().listen((value) {
+    print(value);
+  });
+}
+
+Stream<int> playAllStream() async* {
+  yield* calculate(5);
+  yield* calculate(7);
+}
+
+Stream<int> calculate(int number) async* {
+  for (int i = 0; i < 5; i++) {
+    yield i * number;
+
+    await Future.delayed(Duration(seconds: 1));
+  }
+}
+```
+- `playAllStream` 함수는 두 개의 스트림을 순서대로 처리합니다.
