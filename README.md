@@ -1559,3 +1559,128 @@ class Person {
 - Map 형태의 데이터는 동적으로 값을 저장하기 때문에, 특정 키가 존재하는지, 값이 올바른지, 키 이름에 오타가 없는지 등을 컴파일 타임에 확인하기 어려운 문제가 있습니다. 예를 들어, 서버에서 JSON 형태로 데이터를 받아올 때, 데이터 구조가 일관되지 않거나 예기치 못한 키가 있을 수 있습니다.
 - 클래스를 사용한 형변환을 통해 정확한 타입 검증을 할 수 있습니다. 이를 통해 데이터가 예상된 구조와 일치하는지 확인할 수 있고, 오타나 잘못된 키를 사전에 처리할 수 있습니다.
 - 클래스로 형변환하면, 데이터를 다루는 데 있어 타입 안정성을 높이고, 코드에서 실수를 줄이며, IDE의 자동완성 및 타입 검사를 활용할 수 있습니다.
+
+### Synchronous programming
+```dart
+void main() {
+  addNumbers(1, 1);
+  addNumbers(2, 2);
+}
+
+// 1 + 1 = 2
+// 2 + 2 = 4
+void addNumbers(int number1, int number2) {
+  print('계산 중: $number1 + $number2');
+
+  print('계산 완료: ${number1 + number2}');
+}
+```
+
+### Asyncronous Programming
+```dart
+void main() {
+  // Future - 미래
+  // 미래에 받아올 값
+  Future<String> name = Future.value('이름');
+  Future<int> number = Future.value(123);
+  Future<bool> isTrue = Future.value(true);
+
+  addNumbers(1, 1);
+  addNumbers(2, 2);
+}
+
+void addNumbers(int number1, int number2) {
+  print('계산 시작: $number1 + $number2');
+
+  // 서버 시뮬레이션
+  Future.delayed(Duration(seconds: 2), () {
+    print('계산 완료: $number1 + $number2 = ${number1 + number2}');
+  });
+
+  print('함수 완료: $number1 + $number2');
+}
+```
+
+### `async` & `await`
+```dart
+void main() {
+  // Future - 미래
+  // 미래에 받아올 값
+  Future<String> name = Future.value('이름');
+  Future<int> number = Future.value(123);
+  Future<bool> isTrue = Future.value(true);
+
+  addNumbers(1, 1);
+  addNumbers(2, 2);
+}
+
+void addNumbers(int number1, int number2) async {
+  print('계산 시작: $number1 + $number2');
+
+  // 서버 시뮬레이션
+  await Future.delayed(Duration(seconds: 2), () {
+    print('계산 완료: $number1 + $number2 = ${number1 + number2}');
+  });
+
+  print('함수 완료: $number1 + $number2');
+}
+```
+- `await` 키워드는 비동기 작업이 끝날 때까지 기다리게 해주는 기능을 합니다.
+- `await`는 반드시 `Future`가 반환되는 함수에서 사용해야 합니다.
+- `await`를 사용하려면, 그 코드를 `async` 함수 내에서 실행해야 합니다.
+
+### `async` & `await`
+```dart
+void main() async {
+  // Future - 미래
+  // 미래에 받아올 값
+  Future<String> name = Future.value('이름');
+  Future<int> number = Future.value(123);
+  Future<bool> isTrue = Future.value(true);
+
+  await addNumbers(1, 1);
+  await addNumbers(2, 2);
+}
+
+Future<void> addNumbers(int number1, int number2) async {
+  print('계산 시작: $number1 + $number2');
+
+  // 서버 시뮬레이션
+  await Future.delayed(Duration(seconds: 2), () {
+    print('계산 완료: $number1 + $number2 = ${number1 + number2}');
+  });
+
+  print('함수 완료: $number1 + $number2');
+}
+```
+
+### `async` & `await`
+```dart
+void main() async {
+  // Future - 미래
+  // 미래에 받아올 값
+  Future<String> name = Future.value('이름');
+  Future<int> number = Future.value(123);
+  Future<bool> isTrue = Future.value(true);
+
+  int result1 = await addNumbers(1, 1);
+  int result2 = await addNumbers(2, 2);
+
+  print('result1: $result1');
+  print('result2: $result2');
+  print('result1 + result2 = ${result1 + result2}');
+}
+
+Future<int> addNumbers(int number1, int number2) async {
+  print('계산 시작: $number1 + $number2');
+
+  // 서버 시뮬레이션
+  await Future.delayed(Duration(seconds: 2), () {
+    print('계산 완료: $number1 + $number2 = ${number1 + number2}');
+  });
+
+  print('함수 완료: $number1 + $number2');
+
+  return number1 + number2;
+}
+```
