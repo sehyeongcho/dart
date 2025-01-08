@@ -1563,6 +1563,7 @@ class Person {
 ### Synchronous programming
 ```dart
 void main() {
+  // Synchronous programming
   addNumbers(1, 1);
   addNumbers(2, 2);
 }
@@ -1579,6 +1580,7 @@ void addNumbers(int number1, int number2) {
 ### Asyncronous Programming
 ```dart
 void main() {
+  // Asyncronous Programming
   // Future - 미래
   // 미래에 받아올 값
   Future<String> name = Future.value('이름');
@@ -1604,6 +1606,7 @@ void addNumbers(int number1, int number2) {
 ### `async` & `await`
 ```dart
 void main() {
+  // `async` & `await`
   // Future - 미래
   // 미래에 받아올 값
   Future<String> name = Future.value('이름');
@@ -1632,6 +1635,7 @@ void addNumbers(int number1, int number2) async {
 ### `async` & `await`
 ```dart
 void main() async {
+  // `async` & `await`
   // Future - 미래
   // 미래에 받아올 값
   Future<String> name = Future.value('이름');
@@ -1657,6 +1661,7 @@ Future<void> addNumbers(int number1, int number2) async {
 ### `async` & `await`
 ```dart
 void main() async {
+  // `async` & `await`
   // Future - 미래
   // 미래에 받아올 값
   Future<String> name = Future.value('이름');
@@ -1690,6 +1695,7 @@ Future<int> addNumbers(int number1, int number2) async {
 import 'dart:async';
 
 void main() {
+  // Stream
   final streamController = StreamController();
   final stream = streamController.stream;
 
@@ -1711,6 +1717,7 @@ void main() {
 import 'dart:async';
 
 void main() {
+  // Broadcast stream
   final streamController = StreamController();
   final stream = streamController.stream.asBroadcastStream();
 
@@ -1737,6 +1744,7 @@ void main() {
 import 'dart:async';
 
 void main() {
+  // Filtered stream
   final streamController = StreamController();
   final stream = streamController.stream.asBroadcastStream();
 
@@ -1768,6 +1776,7 @@ void main() {
 import 'dart:async';
 
 void main() async {
+  // Future function
   final result = await calculate(5);
 
   print(result);
@@ -1790,6 +1799,7 @@ Future<int> calculate(int number) async {
 import 'dart:async';
 
 void main() {
+  // Stream function
   calculate(5).listen((value) {
     print('$value');
   });
@@ -1811,6 +1821,7 @@ Stream<int> calculate(int number) async* {
 import 'dart:async';
 
 void main() {
+  // Future, stream function
   calculate(5).listen((value) {
     print('$value');
   });
@@ -1834,6 +1845,7 @@ Stream<int> calculate(int number) async* {
 import 'dart:async';
 
 void main() {
+  // `await` in `Future`, `yield*` in `Stream`
   playAllStream().listen((value) {
     print(value);
   });
