@@ -1152,9 +1152,10 @@ class TimesTen extends TimesTwo {
   }
 }
 ```
-
+### Static variables and methods
 ```dart
 void main() {
+  // Static variables and methods
   Employee employee1 = Employee('name1');
   Employee employee2 = Employee('name2');
 
@@ -1190,8 +1191,10 @@ class Employee {
 ```
 - `static` 키워드는 instance에 속하지 않고 class에 속하는 멤버를 정의합니다.
 
+### Interfaces and abstract classes
 ```dart
 void main() {
+  // Interfaces and abstract classes
   BoyGroup bts = BoyGroup('bts');
   GirlGroup blackpink = GirlGroup('blackpink');
 
@@ -1207,9 +1210,7 @@ void main() {
   print(blackpink is GirlGroup);
 }
 
-// interface: 구현해야 할 속성을 강제해야 할 때 사용합니다.
 abstract class IdolInterface {
-  // abstract 키워드를 사용하면 이 타입으로 instance를 생성할 수 없게 됩니다. 클래스가 아닌 인터페이스임을 알리기 위해 사용합니다.
   String name;
 
   IdolInterface(this.name);
@@ -1237,7 +1238,10 @@ class GirlGroup implements IdolInterface {
   }
 }
 ```
+- Dart에서 클래스나 추상 클래스를 `implements` 키워드를 통해 인터페이스처럼 사용할 수 있습니다.
+- `abstract` 키워드는 클래스가 추상적임을 나타내며, 이 클래스로는 인스턴스를 생성할 수 없습니다. 또한, 추상 클래스는 구현되지 않은 메서드를 포함할 수 있으며, 이를 서브클래스에서 반드시 구현해야 합니다.
 
+### Generics
 ```dart
 void main() {
   Lecture<String, String> lecture1 = Lecture('123', 'lecture1');
@@ -1249,7 +1253,6 @@ void main() {
   lecture2.printIdType();
 }
 
-// generic - 타입을 외부에서 받을 때 사용합니다.
 class Lecture<T, X> {
   final T id;
   final X name;
@@ -1261,7 +1264,9 @@ class Lecture<T, X> {
   }
 }
 ```
+- 제네릭(Generic)은 클래스나 함수에서 사용할 데이터의 타입을 외부에서 지정할 수 있도록 하는 기능입니다.
 
+### Object oriented programming
 ```dart
 void main() {
   Test test = Test();
@@ -1274,12 +1279,13 @@ void main() {
 // Object Oriented Programming(OOP)
 // 객체지향 프로그래밍
 class Test {}
-
-// 모든 클래스는 Object 클래스로부터 상속 받기 때문에 Object Oriented Programming이라 부릅니다.
 ```
+- Dart에서는 모든 클래스가 기본적으로 `Object` 클래스를 상속받습니다.
 
+### Converting between list, map, and set
 ```dart
 void main() {
+  // Converting between list, map, and set
   List<String> blackpink = ['로제', '지수', '리사', '제니', '제니'];
 
   print(blackpink);
@@ -1299,11 +1305,13 @@ void main() {
 }
 ```
 
+### Using dart's `map` method
 ```dart
 void main() {
+  // Using dart's `map` method
   List<String> blackpink = ['로제', '지수', '리사', '제니'];
 
-  final newBlackpink = blackpink.map((x) { // map 함수를 사용하면 기존 리스트가 변경되지 않고 새로운 리스트가 생성됩니다.
+  final newBlackpink = blackpink.map((x) {
     return '블랙핑크 $x';
   });
 
@@ -1326,9 +1334,12 @@ void main() {
   print(parsed);
 }
 ```
+- Dart의 `map` 함수는 기존 리스트를 변경하지 않고, 새로운 Iterable 객체를 생성합니다.
 
+### Using dart's `map` method
 ```dart
 void main() {
+  // Using dart's `map` method
   Map<String, String> harryPotter = {
     'Harry Potter': '해리 포터',
     'Ron Weasley': '론 위즐리',
@@ -1338,7 +1349,7 @@ void main() {
   final result = harryPotter.map((key, value) => MapEntry(
         'Harry Potter Character $key',
         '해리 포터 캐릭터 $value',
-      )); // map 함수를 사용하면 기존 맵이 변경되지 않고 새로운 맵이 생성됩니다.
+      ));
 
   print(harryPotter);
   print(result);
@@ -1351,8 +1362,10 @@ void main() {
 }
 ```
 
+### Using dart's `map` method
 ```dart
 void main() {
+  // Using dart's `map` method
   Set<String> blackpinkSet = {'로제', '지수', '제니', '리사'};
 
   final newSet = blackpinkSet.map((x) => '블랙핑크 $x').toList();
@@ -1361,8 +1374,10 @@ void main() {
 }
 ```
 
+### Using dart's `where` method
 ```dart
 void main() {
+  // Using dart's `where` method
   List<Map<String, String>> people = [
     {
       'name': '로제',
@@ -1392,8 +1407,10 @@ void main() {
 }
 ```
 
+### Using dart's `reduce` method
 ```dart
 void main() {
+  // Using dart's `reduce` method
   List<int> numbers = [1, 3, 5, 7, 9];
 
   final sum = numbers.reduce((prev, next) {
@@ -1403,7 +1420,7 @@ void main() {
     print('prev + next: ${prev + next}');
 
     return prev + next;
-  }); // reduce 함수를 사용하면 반환 타입이 아이템의 타입으로 고정됩니다. 여기서는 int로 고정됩니다.
+  });
 
   print(sum);
 
@@ -1415,14 +1432,17 @@ void main() {
 
   final sentence = words.reduce((prev, next) =>
       prev +
-      next); // reduce 함수를 사용하면 반환 타입이 아이템의 타입으로 고정됩니다. 여기서는 String으로 고정됩니다.
+      next);
 
   print(sentence);
 }
 ```
+- `reduce`는 리스트 아이템의 타입에 따라 반환 타입이 결정되며, 그 타입에 맞춰 결과가 반환됩니다.
 
+### Using dart's `fold` method
 ```dart
 void main() {
+  // Using dart's `fold` method
   List<int> numbers = [1, 3, 5, 7, 9];
 
   final sum = numbers.fold<int>(0, (prev, next) {
@@ -1449,29 +1469,33 @@ void main() {
       0,
       (prev, next) =>
           prev +
-          next.length); // fold 함수를 사용하면 반환 타입이 고정되지 않습니다. 어떤 타입이든 반환 가능하며, 반환할 타입을 제너릭으로 명시하시면 됩니다.
+          next.length);
 
   print(count);
 }
 ```
+- `fold` 함수는 `reduce`와 달리 반환 타입이 고정되지 않으며, 원하는 타입을 명시할 수 있습니다. `fold`는 초기 값과 결합 함수 두 가지를 받기 때문에, 초기 값의 타입을 기준으로 반환 타입을 지정할 수 있습니다.
 
+### Using the spread operator
 ```dart
 void main() {
+  // Using the spread operator
   List<int> even = [2, 4, 6, 8];
 
   List<int> odd = [1, 3, 5, 7, 9];
 
-  // Cascading operator
-  // ...
   print([...even, ...odd]);
   print(even);
   print([...even]);
-  print(even == [...even]); // Cascading operator를 사용하면 새로운 주소에 값을 할당합니다.
+  print(even == [...even]);
 }
 ```
+- `Spread operator`로 복사한 리스트는 새로운 주소를 가지게 됩니다.
 
+### Functional programming
 ```dart
 void main() {
+  // Functional programming
   final List<Map<String, String>> people = [
     {
       'name': '로제',
@@ -1517,7 +1541,6 @@ void main() {
 
   print(result);
 }
-// Map 안에 수많은 데이터가 들어 있다고 가정할 때, 데이터 중 오타가 없는지, 지정된 key 외에 다른 key가 없는지 확신할 수 있는 방법이 없습니다. 따라서 서버에서 이러한 JSON 형태의 데이터를 받아와서 프론트엔드에서 사용하려면, 클래스로 형변환을 해주는 것이 중요합니다. 클래스로 형변환을 하게 되면 데이터가 구조화되고 신뢰할 수 있는 형태로 가공됩니다.
 
 class Person {
   final String name;
@@ -1533,3 +1556,6 @@ class Person {
   }
 }
 ```
+- Map 형태의 데이터는 동적으로 값을 저장하기 때문에, 특정 키가 존재하는지, 값이 올바른지, 키 이름에 오타가 없는지 등을 컴파일 타임에 확인하기 어려운 문제가 있습니다. 예를 들어, 서버에서 JSON 형태로 데이터를 받아올 때, 데이터 구조가 일관되지 않거나 예기치 못한 키가 있을 수 있습니다.
+- 클래스를 사용한 형변환을 통해 정확한 타입 검증을 할 수 있습니다. 이를 통해 데이터가 예상된 구조와 일치하는지 확인할 수 있고, 오타나 잘못된 키를 사전에 처리할 수 있습니다.
+- 클래스로 형변환하면, 데이터를 다루는 데 있어 타입 안정성을 높이고, 코드에서 실수를 줄이며, IDE의 자동완성 및 타입 검사를 활용할 수 있습니다.
