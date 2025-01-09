@@ -1960,3 +1960,96 @@ List<({String name, int age})> getNewJeansWithType3() {
 - List와 함께 사용하여 여러 Record를 관리할 수 있습니다.
 - Named parameter 스타일 문법 `{}`을 사용하면 데이터 필드에 명확한 이름을 부여할 수 있습니다.
 
+### Destructuring
+```dart
+void main() {
+  // Destructuring(구조 분해 할당)
+  final (name, age) = ('민지', 20); // Record의 데이터를 바로 변수에 할당할 수 있습니다.
+
+  print(name);
+  print(age);
+
+  print('----------');
+
+  final newJeans = ['민지', '해린'];
+
+  final [a, b] = newJeans; // List의 데이터를 바로 변수에 할당할 수 있습니다.
+
+  print(a);
+  print(b);
+
+  print('----------');
+
+  final [String aa, String bb] = newJeans; // 타입을 지정하여 데이터를 할당할 수 있습니다.
+
+  print(aa);
+  print(bb);
+
+  print('----------');
+
+  final numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  final [x, y, ..., z] =
+      numbers; // Rest Matching은 List에서 나머지 데이터를 생략할 때 사용하며, 한 번만 사용할 수 있습니다.
+
+  print(x);
+  print(y);
+  print(z);
+
+  print('----------');
+
+  final [xx, yy, ...rest, zz] =
+      numbers; // Rest Matching에 이름을 지정하여 생략된 데이터를 별도로 사용할 수 있습니다.
+
+  print(xx);
+  print(yy);
+  print(zz);
+  print(rest);
+
+  print('----------');
+
+  final [xxx, _, yyy, ...rest2, zzz, _] =
+      numbers; // `_`를 사용해 특정 데이터를 무시할 수 있습니다. 무시한 데이터는 별도로 사용할 수 없습니다.
+
+  print(xxx);
+  print(yyy);
+  print(zzz);
+  print(rest2);
+
+  print('----------');
+
+  final minJiMap = {
+    'name': '민지',
+    'age': 20,
+  };
+
+  final {
+    // Map을 Destructuring할 경우, key와 매칭되는 변수 이름을 명시해야 합니다.
+    'name': name2,
+    'age': age2,
+  } = minJiMap;
+
+  print(name2);
+  print(age2);
+
+  print('----------');
+
+  final minJiIdol = Idol(name: '민지', age: 20);
+
+  final Idol(name: name3, age: age3) =
+      minJiIdol; // Class도 Destructuring이 가능합니다. Dart에서는 대부분의 데이터 구조에서 Destructuring을 지원합니다.
+
+  print(name3);
+  print(age3);
+}
+
+class Idol {
+  final String name;
+  final int age;
+
+  Idol({
+    required this.name,
+    required this.age,
+  });
+}
+```
