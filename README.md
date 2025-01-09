@@ -1865,3 +1865,98 @@ Stream<int> calculate(int number) async* {
 }
 ```
 - `playAllStream` 함수는 두 개의 스트림을 순서대로 처리합니다.
+
+### Record
+```dart
+void main() {
+  // Record 사용 예제
+  final result = nameAndAge({
+    'name': '민지',
+    'age': 20,
+  });
+
+  print(result);
+  print(result.$1);
+  print(result.$2);
+
+  print('----------');
+
+  // List에 Record를 활용한 예제
+  final result2 = getNewJeansWithType();
+
+  for (final item in result2) {
+    print(item.$1);
+    print(item.$2);
+  }
+
+  print('----------');
+
+  // Named Record 사용 예제
+  final result3 = getNewJeansWithType2();
+
+  for (final item in result3) {
+    print(item.$1);
+    print(item.$2);
+  }
+
+  print('----------');
+
+  // Named parameter 스타일의 Record 사용 예제
+  final result4 = getNewJeansWithType3();
+
+  for (final item in result4) {
+    print(item.name);
+    print(item.age);
+  }
+
+  print('----------');
+
+  // 여러 필드를 포함한 Record 사용 예제
+  final result5 = getMinji();
+
+  print(result5);
+  print(result5.$1);
+  print(result5.$2);
+  print(result5.$3);
+}
+
+// Record를 반환하는 함수
+(String, int) nameAndAge(Map<String, dynamic> json) {
+  return (json['name'] as String, json['age'] as int);
+}
+
+// Unnamed Record List를 반환하는 함수
+List<(String, int)> getNewJeansWithType() {
+  return [
+    ('민지', 20),
+    ('해린', 18),
+  ];
+}
+
+// Named Record List를 반환하는 함수
+List<(String name, int age)> getNewJeansWithType2() {
+  return [
+    ('민지', 20),
+    ('해린', 18),
+  ];
+}
+
+// Named parameter 스타일의 Record를 반환하는 함수
+List<({String name, int age})> getNewJeansWithType3() {
+  return [
+    (name: '민지', age: 20),
+    (name: '해린', age: 18),
+  ];
+}
+
+// 여러 필드를 포함한 Record를 반환하는 함수
+(String name, String group, int age) getMinji() {
+  return ('민지', '뉴진스', 20);
+}
+```
+- 타입과 순서를 보장: `(String, int)`처럼 고정된 타입과 순서를 제공하여 데이터 무결성을 유지합니다.
+- 코드 간결성: 클래스를 정의하지 않아도 간단히 데이터 그룹을 표현할 수 있습니다.
+- 가독성 향상: 데이터에 이름을 붙이거나(Named Record) 순서만 사용(Unnamed Record)하여 가독성을 높일 수 있습니다.
+- List와 함께 사용하여 여러 Record를 관리할 수 있습니다.
+- Named parameter 스타일 문법 `{}`을 사용하면 데이터 필드에 명확한 이름을 부여할 수 있습니다.
+
