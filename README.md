@@ -2053,3 +2053,105 @@ class Idol {
   });
 }
 ```
+
+### Pattern Matching
+```dart
+void main() {
+  switcher('aaa');
+  switcher(['1', '2']);
+  switcher([1, 2, 3]);
+  switcher([4, 5, 6]);
+  switcher([7, 8]);
+  switcher(8);
+  switcher(15);
+
+  print('----------');
+
+  print(switcher2(8, true));
+  print(switcher2(15, true));
+  print(switcher2(15, false));
+
+  print('----------');
+
+  forMatcher();
+
+  print('----------');
+
+  ifMatcher();
+}
+
+// Dart의 switch에서 패턴 매칭을 사용할 수 있습니다.
+// 각 case에 다양한 패턴(문자열, 리스트, 조건)을 적용할 수 있습니다.
+void switcher(dynamic anything) {
+  switch (anything) {
+    case 'aaa':
+      print('match: aaa');
+      break;
+    case ['1', '2']:
+      print('match: [1, 2]');
+      break;
+    case [_, _, _]:
+      print('match: [_, _, _]');
+      break;
+    case [int a, int b]:
+      print('match: [int $a, int $b]');
+      break;
+    case > 5 && < 10:
+      print('match: > 5 && < 10');
+      break;
+    default:
+      print('no match');
+      break;
+  }
+}
+
+// switch 내부에서 arrow function을 사용해 각 case에 해당하는 값을 반환할 수 있습니다.
+// when 키워드를 사용하면 조건부로 특정 case를 매칭할 수 있습니다.
+String switcher2(dynamic anything, bool condition) => switch (anything) {
+      8 => 'match: 8',
+      15 when condition => 'match: 15 && true',
+      _ => 'no match',
+    };
+
+void forMatcher() {
+  final List<Map<String, dynamic>> members = [
+    {
+      'name': '민지',
+      'age': 20,
+    },
+    {
+      'name': '해린',
+      'age': 18,
+    },
+  ];
+
+  for (final member in members) {
+    // 패턴 매칭을 사용하지 않는 기존 방식
+    print(member['name']);
+    print(member['age']);
+  }
+
+  print('----------');
+
+  for (final {'name': name, 'age': age} in members) {
+    // for 안에서도 pattern matching(destructuring)을 사용할 수 있습니다.
+    print(name);
+    print(age);
+  }
+}
+
+void ifMatcher() {
+  final member = {
+    'name': '민지',
+    'age': 20,
+  };
+
+  // member가 지정된 패턴과 매칭되면(조건을 만족하면) 해당 내용을 실행합니다.
+  // 이와 같이 if 문에서도 패턴 매칭을 사용할 수 있습니다.
+  if (member case {'name': String name, 'age': int age}) {
+    print(name);
+    print(age);
+  }
+}
+```
+
