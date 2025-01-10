@@ -2155,3 +2155,72 @@ void ifMatcher() {
 }
 ```
 
+### final, base, interface, sealed class, and mixin class
+```dart
+void main() {}
+
+// `final`로 클래스를 선언하면 해당 클래스를 extends, implements, with 모두 불가능합니다.
+final class Person {
+  final String name;
+  final int age;
+
+  Person({
+    required this.name,
+    required this.age,
+  });
+}
+
+// `base`로 클래스를 선언하면 extends는 가능하지만, implements는 불가능합니다.
+// base, sealed, final로 선언된 클래스만 base 클래스를 extends할 수 있습니다.
+base class Person2 {
+  final String name;
+  final int age;
+
+  Person2({
+    required this.name,
+    required this.age,
+  });
+}
+
+// `interface` 키워드를 사용하면 해당 클래스를 implements만 가능합니다.
+// 모든 멤버를 재정의해야 하며, extends나 with는 사용할 수 없습니다.
+interface class Person3 {
+  final String name;
+  final int age;
+
+  Person3({
+    required this.name,
+    required this.age,
+  });
+}
+
+// `sealed`로 클래스를 선언하면 abstract이면서 final입니다.
+// sealed 클래스에서는 패턴 매칭을 사용할 수 있습니다.
+sealed class Person4 {}
+
+class Idol extends Person4 {}
+
+class Engineer extends Person4 {}
+
+class Chef extends Person4 {}
+
+String switcher(Person4 person) => switch (person) {
+      // `sealed` 클래스를 사용하면 해당 클래스를 extends하는 모든 클래스가 switch에서 고려됩니다.
+      // 누락된 경우 컴파일러가 에러를 발생시킵니다.
+      Idol idol => '아이돌',
+      Engineer engineer => '엔지니어',
+      _ => '그 외',
+    };
+
+// `mixin class`는 `mixin`처럼 다중 상속을 흉내 내는 특성을 가지면서도, 일반 클래스와 조합되는 유연성을 제공합니다. 하지만 이 유연성은 `mixin`과 `class` 각각의 문법적 제약 안에서만 가능합니다.
+// `mixin class`는 기존의 `mixin`과 `class`의 특성을 혼합한 형태로, 각각의 문법적 제약을 모두 따릅니다.
+// 1) `mixin`은 extends, with를 사용할 수 없습니다. 따라서 `mixin class`도 사용할 수 업습니다. (`mixin`은 특정 클래스에 의존하지 않고 여러 클래스와 조합될 수 있어야 하기 때문입니다.)
+// 2) `class`는 on을 사용할 수 없습니다. 따라서 `mixin class`도 사용할 수 없습니다. (`on` 키워드는 mixin이 적용될 수 있는 클래스나 인터페이스를 제한하기 위한 키워드로, 일반 클래스의 문법에서는 해당 키워드를 사용할 필요가 없기 때문입니다.)
+mixin class AnimalMixin {
+  String bark() {
+    return '멍멍';
+  }
+}
+
+class Dog with AnimalMixin {}
+```
